@@ -1,4 +1,13 @@
-var topics = ["dogs", "cats", "horses", "gerbals", "wolves", "stubborn"];
+var topics = ["dogs", "cats", "horses", "gerbals", "wolves", "stubborn", "celebrity"];
+
+for (var a = 0; a<topics.length; a++) {
+    function buttongenerator() {
+        $("#buttons").append("<button id = 'button" + a + "'" + ">")
+    }
+    buttongenerator();
+
+    $("#button" + a).html(topics[a]);
+}
 
 
 
