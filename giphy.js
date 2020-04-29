@@ -282,7 +282,7 @@ var topics = ["dogs", "cats", "horses", "funny", "wolves", "stubborn", "celebrit
 
 for (var a = 0; a<topics.length; a++) {
     function buttongenerator() {
-        $("#buttons").append("<button id = 'button" + a + "' " + "onClick='reply_click(this.id)'>")
+        $("#buttons").append("<button id = 'button" + a + "' " + "class = 'btn btn-success' onClick='reply_click(this.id)'>")
     }
     buttongenerator();
 
