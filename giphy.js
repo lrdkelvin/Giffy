@@ -50,8 +50,8 @@ $.ajax({
 
     $("#image" + i).attr("src", response.data[i].images.original_still.url);
    
-    $("#image" + i).attr("width", "250");
-    $("#image" + i).attr("height", "250");
+    $("#image" + i).attr("width", "150");
+    $("#image" + i).attr("height", "150");
     
     console.log("yes");
     
