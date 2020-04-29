@@ -1,5 +1,6 @@
 var topics = ["dogs", "cats", "horses", "gerbals", "wolves", "stubborn", "celebrity"];
 
+
 for (var a = 0; a<topics.length; a++) {
     function buttongenerator() {
         $("#buttons").append("<button id = 'button" + a + "'" + ">")
@@ -12,6 +13,17 @@ for (var a = 0; a<topics.length; a++) {
 $("#submitButton").on("click", function () {
     console.log("you clicked me!");
    var userInput = $("input:text").val();
+
+   if (userInput !== "") {
+   topics.push(userInput) ;
+   console.log("user typed " +userInput);
+   console.log("topics are " +topics);
+   buttongenerator();
+   $("#button" + a).html(userInput);
+   a++
+   } else {
+       console.log("please enter a valid input")
+    }
 })
 
 
