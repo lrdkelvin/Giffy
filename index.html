@@ -9,18 +9,26 @@
 
         <div id = "buttons">
             button!
+        </div>
 
         <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Search for a new type of gif! (i.e. cars)</label>
-              <input type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name = "searchtext" class="form-control" id="userinput" aria-describedby="emailHelp">
+              <input id= "submitButton" type="submit" value= "Submit">
+              
             </div>
-            <button id= "submitButton" type="submit" class="btn btn-primary">Submit</button>
+            
           </form>
+          <button id= "searchButton" class="btn btn-primary">Submit</button>
+
+          
 
         <div id= "images">
             
         </div>
+            
+       
     </body>
     
     <script src = "giphy.js"></script>

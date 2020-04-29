@@ -9,6 +9,11 @@ for (var a = 0; a<topics.length; a++) {
     $("#button" + a).html(topics[a]);
 }
 
+$("#submitButton").on("click", function () {
+    console.log("you clicked me!");
+   var userInput = $("input:text").val();
+})
+
 
 
 var baseurl = "https://api.giphy.com/v1/gifs/trending?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9"
