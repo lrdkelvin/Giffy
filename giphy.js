@@ -10,6 +10,8 @@ var playing6 = true;
 var playing7 = true;
 var playing8 = true;
 var playing9 = true;
+var playing10 = true;
+var playing11 = true;
 
 
 searchTerm = "";
@@ -32,18 +34,25 @@ $.ajax({
 
   var imageNumber = "";
 
-  for (var i=0; i < 10; i++) {
+  for (var i=0; i < 12; i++) {
     function createimg() {
-        $("#images").append("<img id = 'image" + i + "'" + "class = 'images'" + ">")
+        $("#images").append("<div class= 'container-box' id ='container" + i + "'" + ">");
+        
         $("#img" + i).attr("id", i)
     }
 
     createimg();
 
+    //container creates ratings tag inside it
+    $("#container" +i).append("<div class= 'container-sm rounded-sm ratings'> rating: " + response.data[i].rating )
+    //container creats img tags inside it
+    $("#container" +i).append("<img id = 'image" + i + "'" + "class = 'images rounded-lg'" + ">")
+
     $("#image" + i).attr("src", response.data[i].images.original_still.url);
-    $("#image" + i).before("<div> rating: " + response.data[i].rating); + "</div>"
+   
     $("#image" + i).attr("width", "250");
     $("#image" + i).attr("height", "250");
+    
     console.log("yes");
     
   }
@@ -55,7 +64,7 @@ $("#image0").attr("src", response.data[0].images.preview_gif.url);
 console.log( "you clicked it!");
 playing0 = false;
     } else { 
-        $("#image7").attr("src", response.data[0].images.original_still.url);
+        $("#image0").attr("src", response.data[0].images.original_still.url);
         playing0 = true;
         console.log("it's not playing anymore")
         
@@ -67,7 +76,7 @@ playing0 = false;
 
   $("#image1").on("click", function() {
     
-    if (playing7 === true) {
+    if (playing1 === true) {
 $("#image1").attr("src", response.data[1].images.preview_gif.url);
 console.log( "you clicked it!");
 playing1 = false;
@@ -138,7 +147,7 @@ playing4 = false;
 $("#image5").on("click", function() {
     
     if (playing5 === true) {
-$("#image7").attr("src", response.data[5].images.preview_gif.url);
+$("#image5").attr("src", response.data[5].images.preview_gif.url);
 console.log( "you clicked it!");
 playing5 = false;
     } else { 
@@ -189,11 +198,11 @@ playing7 = false;
 $("#image8").on("click", function() {
     
     if (playing8 === true) {
-$("#image9").attr("src", response.data[8].images.preview_gif.url);
+$("#image8").attr("src", response.data[8].images.preview_gif.url);
 console.log( "you clicked it!");
 playing8 = false;
     } else { 
-        $("#image9").attr("src", response.data[8].images.original_still.url);
+        $("#image8").attr("src", response.data[8].images.original_still.url);
         playing8 = true;
         console.log("it's not playing anymore")
         
@@ -220,19 +229,55 @@ $("#image9").on("click", function() {
     
 });
 
+$("#image10").on("click", function() {
+    
+    if (playing10 === true) {
+$("#image10").attr("src", response.data[10].images.preview_gif.url);
+console.log( "you clicked it!");
+playing10 = false;
+    } else { 
+        $("#image10").attr("src", response.data[10].images.original_still.url);
+        playing10 = true;
+        console.log("it's not playing anymore")
+        
+
+    }
+
+
+});
+
+$("#image11").on("click", function() {
+    
+    if (playing11 === true) {
+$("#image11").attr("src", response.data[11].images.preview_gif.url);
+console.log( "you clicked it!");
+playing11 = false;
+    } else { 
+        $("#image11").attr("src", response.data[11].images.original_still.url);
+        playing11 = true;
+        console.log("it's not playing anymore")
+        
+
+    }
+
+
+});
+
+
+
+
  
 });
 
 }//end function postpictures
 
-postPictures();
 
 
 
 
 
 
-var topics = ["dogs", "cats", "horses", "funny", "wolves", "stubborn", "celebrity"];
+var topics = ["dogs", "cats", "horses", "funny", "wolves", "stubborn", "celebrity", "dragon", "monster"];
 
 
 for (var a = 0; a<topics.length; a++) {
@@ -248,11 +293,13 @@ $("#submitButton").on("click", function () {
     console.log("you clicked me!");
    var userInput = $("input:text").val();
 
-   if (userInput !== "") {
+   if (userInput !== "" && topics.includes(userInput) !== true) {
+       console.log("user input is" + topics.includes(userInput));
    topics.push(userInput) ;
    console.log("user typed " +userInput);
    console.log("topics are " +topics);
    buttongenerator();
+   postPictures();
    
    $("#button" + a).html(userInput);
    a++
